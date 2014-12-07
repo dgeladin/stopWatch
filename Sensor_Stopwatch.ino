@@ -61,6 +61,10 @@ void stop_watch ()
     Serial.println("Starting Stop Watch..");
     mySW.start();
     stopwatch_state = 1;
+    lcd.setCursor(0,0);
+    lcd.print("Starting time....");
+    lcd.setCursor(0,1);
+    lcd.print("Time: ");
   } else {
     Serial.println("Stopping Stop Watch..");
     mySW.stop();
@@ -87,6 +91,8 @@ void stop_watch ()
     Serial.println(fractional);  // print fractional part of time
     LcdString = LcdString + fractional;
     lcd.setCursor(0,0);
+    lcd.print("Stop time....");
+    lcd.setCursor(0,1);
     lcd.print("Time: " + LcdString);
 
     mySW.reset();
