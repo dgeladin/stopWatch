@@ -30,7 +30,7 @@ void setup()   /*----( SETUP: RUNS ONCE )----*/
   Serial.begin(9600);
   pinMode (SWITCHPIN, INPUT );
   pinMode (LEDPIN, OUTPUT );
-  lcd.print("Start:");
+  lcd.print("Start...");
 }/*--(end setup)---*/
 
 void  loop ()  /*----( LOOP: RUNS CONSTANTLY )----*/
@@ -61,6 +61,10 @@ void stop_watch ()
     Serial.println("Starting Stop Watch..");
     mySW.start();
     stopwatch_state = 1;
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Awaiting Finish.");
+    delay(2000);
   } else {
     Serial.println("Stopping Stop Watch..");
     mySW.stop();
@@ -86,9 +90,10 @@ void stop_watch ()
     }    
     Serial.println(fractional);  // print fractional part of time
     LcdString = LcdString + fractional;
+    lcd.clear();
     lcd.setCursor(0,0);
     lcd.print("Time: " + LcdString);
-
+    delay(2000);
     mySW.reset();
     stopwatch_state = 0;
   }
