@@ -64,6 +64,7 @@ void stop_watch ()
     lcd.clear();
     lcd.setCursor(0,0);
     lcd.print("Awaiting Finish.");
+    delay(2000);
   } else {
     Serial.println("Stopping Stop Watch..");
     mySW.stop();
@@ -92,7 +93,7 @@ void stop_watch ()
     lcd.clear();
     lcd.setCursor(0,0);
     lcd.print("Time: " + LcdString);
-
+    delay(2000);
     mySW.reset();
     stopwatch_state = 0;
   }
